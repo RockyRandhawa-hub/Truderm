@@ -8,9 +8,9 @@ import Link from "next/link";
 
 
 const Header = () => {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  useEffect(() => {
+useEffect(() => {
     if (!canvasRef.current) return;
 
     // Scene setup
@@ -171,7 +171,7 @@ const Header = () => {
       metalness: 0.5,
     });
 
-    const particles = [];
+    const particles: { mesh: THREE.Mesh; angle: number; radius: number; speed: number }[] = [];
     for (let i = 0; i < 25; i++) {
       const particle = new THREE.Mesh(particleGeometry, particleMaterial);
       const angle = (i / 25) * Math.PI * 2;

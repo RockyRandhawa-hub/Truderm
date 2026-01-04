@@ -2,7 +2,9 @@
 import React from "react";
 
 export const SocialShareSidebar = () => {
-  const handleSocialClick = (platform) => {
+type SocialPlatform = "facebook" | "instagram" | "whatsapp" | "youtube";
+
+  const handleSocialClick = (platform: SocialPlatform) => {
     const urls = {
       facebook: 'https://www.facebook.com/trudermclinic',
       instagram: 'https://www.instagram.com/trudermclinic',

@@ -1,18 +1,17 @@
 "use client"
 import React, { useState } from "react";
-import { Send,Phone,Mail, Map, MapPin } from "lucide-react";
+import { Send, Phone, Mail, MapPin } from "lucide-react";
 import Footer from "../component/Footer";
-import Link from "next/link";
-import Image from "next/image";
-import logo from "../assets/logo.png";
 const ContactUs = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-    phone:""
-  });
+  const initialFormData = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+  phone: "",
+};
+
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e:any) => {
     const { name, value } = e.target;
@@ -45,12 +44,7 @@ data.append("entry.1308927329", formData.phone);
     });
 
     alert("Message sent successfully!");
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+    setFormData(initialFormData);
   } catch (err) {
     alert("Something went wrong. Please try again later.");
   }
@@ -199,7 +193,7 @@ data.append("entry.1308927329", formData.phone);
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows="6"
+                  rows={6}
                   placeholder="Write your message here..."
                   className="w-full px-5 py-4 border-2 border-pink-200 rounded-xl focus:outline-none focus:border-[#B65B6A] focus:ring-4 focus:ring-pink-100 transition-all duration-300 resize-none bg-white shadow-sm group-hover:shadow-md"
                 ></textarea>
