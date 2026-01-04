@@ -2,10 +2,10 @@
 import React, { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import Faq from "../assets/faq.png"
-import Image from 'next/image'
+import Image from 'next/image' 
 
 const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(2) // Third item open by default
+  const [openIndex, setOpenIndex] = useState<number>(2) // Third item open by default
 
   const faqs = [
     {
